@@ -1,29 +1,46 @@
-[
-  {
-    "id": "classic",
-    "name": "Font Awesome Classic",
-    "version": "0.0.2",
-    "variant": "classic",
-    "has_background": true,
-    "preview": "images/classic/v0.0.2.png",
-    "download": "https://github.com/example/releases/download/v0.0.2-classic/classic.zip"
-  },
-  {
-    "id": "chisel",
-    "name": "Font Awesome Chisel",
-    "version": "0.0.2",
-    "variant": "chisel",
-    "has_background": true,
-    "preview": "images/chisel/v0.0.2.png",
-    "download": "https://github.com/example/releases/download/v0.0.2-chisel/chisel.zip"
-  },
-  {
-    "id": "brands",
-    "name": "Font Awesome Brands",
-    "version": "0.0.2",
-    "variant": "brands",
-    "has_background": false,
-    "preview": "images/brands/v0.0.2.png",
-    "download": "https://github.com/example/releases/download/v0.0.2-brands/brands.zip"
-  }
-]
+{
+  "v7.1.0": [
+    {
+      "font_id": "brands",
+      "font_name": "Brands",
+      "color_id": "white",
+      "color_name": "White",
+      "background": false
+    },
+    {
+      "font_id": "brands",
+      "font_name": "Brands",
+      "color_id": "white",
+      "color_name": "White",
+      "background": true
+    },
+    {
+      "font_id": "chisel",
+      "font_name": "Chisel",
+      "color_id": "white",
+      "color_name": "White",
+      "background": false
+    },
+    {
+      "font_id": "chisel",
+      "font_name": "Chisel",
+      "color_id": "white",
+      "color_name": "White",
+      "background": true
+    },
+    {
+      "font_id": "utility-fill-semibold",
+      "font_name": "Utility Fill Semibold",
+      "color_id": "white",
+      "color_name": "White",
+      "background": false
+    },
+    {
+      "font_id": "utility-fill-semibold",
+      "font_name": "Utility Fill Semibold",
+      "color_id": "white",
+      "color_name": "White",
+      "background": true
+    }
+  ]
+}
