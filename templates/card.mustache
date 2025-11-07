@@ -1,9 +1,11 @@
 <div class="bg-gray-800 rounded-xl shadow-lg p-4 hover:scale-105 transition">
-    <img src="https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ ^font.background }}-transparent{{ /font.background }}.thumb_16x9.jpg" alt="{{ font.font_name }}" class="rounded mb-3 object-cover w-full">
-    <h3 class="text-lg truncate font-semibold text-white">{{ font.font_name }} {{ font.color_name }}{{ ^font.background }} (Transparent){{ /font.background }}</h3>
+    <a href="https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.thumb_16x9.jpg" data-lightbox="gallery" data-title="<a href='https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.SDICON'>Stream Deck</a> • <a href='https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.streamDeckIconPack'>Stream Dock</a>">
+        <img src="https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.thumb_16x9.jpg" alt="{{ font.font_name }}" class="rounded mb-3 object-cover w-full aspect-video">
+    </a>
+    <h3 class="text-lg truncate font-semibold text-white">{{ font.font_name }} {{ font.color_name }}{{ #font.transparent }} (Transparent){{ /font.transparent }}</h3>
     <p class="text-sm text-gray-400">{{ version }} • {{ font.font_name }} • {{ font.color_name }}</p>
-    <div class="inline-flex rounded-md shadow-xs w-full">
-        <a href="#" class="w-1/2 text-center px-4 py-2 font-medium rounded-s-lg focus:z-10 focus:ring-2 bg-blue-600 hover:bg-blue-700 text-white border-r border-blue-800">Stream Deck</a>
-        <a href="#" class="w-1/2 text-center px-4 py-2 font-medium rounded-e-lg focus:z-10 focus:ring-2 bg-blue-600 hover:bg-blue-700 text-white">Stream Dock</a>
+    <div class="inline-flex rounded-md shadow-xs w-full mt-5">
+        <a href="https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.streamDeckIconPack" class="w-1/2 text-center px-4 py-2 font-medium rounded-s-lg focus:z-10 focus:ring-2 bg-blue-600 hover:bg-blue-700 text-white border-r border-blue-800">Stream Deck</a>
+        <a href="https://github.com/stream-duck/font-awesome-icon-packs/releases/download/{{ version }}-{{ font.font_id }}/{{ font.font_id }}.{{ font.color_id }}{{ #font.transparent }}-transparent{{ /font.transparent }}.SDICON" class="w-1/2 text-center px-4 py-2 font-medium rounded-e-lg focus:z-10 focus:ring-2 bg-blue-600 hover:bg-blue-700 text-white">Stream Dock</a>
     </div>
 </div>

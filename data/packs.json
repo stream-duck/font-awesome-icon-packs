@@ -1,46 +1,45 @@
 {
-  "v7.1.0": [
-    {
-      "font_id": "brands",
-      "font_name": "Brands",
-      "color_id": "white",
-      "color_name": "White",
-      "background": false
+  "v7.1.0": {
+    "fonts": {
+      "brands": "Brands",
+      "chisel-regular": "Chisel Regular",
+      "classic-solid": "Classic Solid",
+      "classic-regular": "Classic Regular",
+      "classic-light": "Classic Light",
+      "classic-thin": "Classic Thin",
+      "duotone-solid": "Duotone Solid",
+      "duotone-regular": "Duotone Regular",
+      "duotone-light": "Duotone Light",
+      "duotone-thin": "Duotone Thin",
+      "etch-solid": "Etch Solid",
+      "jelly-regular": "Jelly Regular",
+      "jelly-duo-regular": "Jelly Duo Regular",
+      "jelly-fill-regular": "Jelly Fill Regular",
+      "notdog-solid": "Notdog Solid",
+      "notdog-duo-solid": "Notdog Duo Solid",
+      "sharp-solid": "Sharp Solid",
+      "sharp-regular": "Sharp Regular",
+      "sharp-light": "Sharp Light",
+      "sharp-thin": "Sharp Thin",
+      "sharp-duotone-solid": "Sharp Duotone Solid",
+      "sharp-duotone-regular": "Sharp Duotone Regular",
+      "sharp-duotone-light": "Sharp Duotone Light",
+      "sharp-duotone-thin": "Sharp Duotone Thin",
+      "slab-regular": "Slab Regular",
+      "slab-press-regular": "Slab Press Regular",
+      "thumbprint-light": "Thumbprint Light",
+      "utility-semibold": "Utility Semibold",
+      "utility-duo-semibold": "Utility Duo Semibold",
+      "utility-fill-semibold": "Utility Fill Semibold",
+      "whiteboard-semibold": "Whiteboard Semibold"
     },
-    {
-      "font_id": "brands",
-      "font_name": "Brands",
-      "color_id": "white",
-      "color_name": "White",
-      "background": true
-    },
-    {
-      "font_id": "chisel",
-      "font_name": "Chisel",
-      "color_id": "white",
-      "color_name": "White",
-      "background": false
-    },
-    {
-      "font_id": "chisel",
-      "font_name": "Chisel",
-      "color_id": "white",
-      "color_name": "White",
-      "background": true
-    },
-    {
-      "font_id": "utility-fill-semibold",
-      "font_name": "Utility Fill Semibold",
-      "color_id": "white",
-      "color_name": "White",
-      "background": false
-    },
-    {
-      "font_id": "utility-fill-semibold",
-      "font_name": "Utility Fill Semibold",
-      "color_id": "white",
-      "color_name": "White",
-      "background": true
+    "colors": {
+      "crimson-red": "Crimson Red",
+      "deep-blue": "Deep Blue",
+      "emerald-green": "Emerald Green",
+      "royal-purple": "Royal Purple",
+      "warm-amber": "Warm Amber",
+      "white": "White"
     }
-  ]
+  }
 }

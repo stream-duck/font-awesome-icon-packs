@@ -5,6 +5,7 @@
     const filtersDiv = document.getElementById('filters');
 
     let selected_version;
+    let icon_packs = [];
 
     const versionFilter = document.createElement('select');
     versionFilter.innerHTML = Object.keys(data).map(v => `<option value="${v}">${v}</option>`).join('');
@@ -30,8 +31,28 @@
         const version = data[versionFilter.value];
 
         if (versionFilter.value !== selected_version) {
-            const fonts = Object.fromEntries(version.map(font => [font.font_id, font.font_name]));
-            const colors = Object.fromEntries(version.map(font => [font.color_id, font.color_name]));
+            const fonts = version["fonts"];
+            const colors = version["colors"];
+            icon_packs = []
+
+            for (const font_id in fonts) {
+                for (const color_id in colors) {
+                    icon_packs.push({
+                        font_id: font_id,
+                        font_name: fonts[font_id],
+                        color_id: color_id,
+                        color_name: colors[color_id],
+                        transparent: true
+                    })
+                    icon_packs.push({
+                        font_id: font_id,
+                        font_name: fonts[font_id],
+                        color_id: color_id,
+                        color_name: colors[color_id],
+                        transparent: false
+                    })
+                }
+            }
 
             fontFilter.innerHTML = `<option value="">All Fonts</option>` +
                 Object.keys(fonts).map(font_id => `<option value="${font_id}">${fonts[font_id]}</option>`).join('');
@@ -42,10 +63,10 @@
             selected_version = versionFilter.value;
         }
 
-        const filtered = version.filter(font =>
+        const filtered = icon_packs.filter(font =>
             (!fontFilter.value || font.font_id === fontFilter.value) &&
             (!colorFilter.value || font.color_id === colorFilter.value) &&
-            (!backgroundFilter.value || font.background === (backgroundFilter.value === "1")) &&
+            (!backgroundFilter.value || font.transparent === (backgroundFilter.value === "0")) &&
             true
         );
         gallery.innerHTML = filtered.map(font =>
