@@ -73,8 +73,8 @@
             selected_version = versionFilter.value;
         }
 
-        if (fontFilter.value !== query_param("font")) fontFilter.value = query_param("font");
-        if (colorFilter.value !== query_param("color")) colorFilter.value = query_param("color");
+        if (fontFilter.value !== query_param("font")) fontFilter.value = query_param("font") || "all";
+        if (colorFilter.value !== query_param("color")) colorFilter.value = query_param("color") || "all";
         if (backgroundFilter.value !== query_param("bg")) backgroundFilter.value = query_param("bg");
 
         const filtered = icon_packs.filter(font =>
