@@ -133,7 +133,6 @@ jobs:
       - uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_URL: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
         with:
           name: "Icon Packs ${{ github.ref_name }}"
           body: |
