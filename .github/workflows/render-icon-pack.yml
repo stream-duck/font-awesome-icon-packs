@@ -26,77 +26,25 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install -y curl git zip gnupg
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          apt-get update
-          apt-get install -y gh
+          apt-get install -y curl git zip
           rm -rf /var/lib/apt/lists/*
 
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install uv
-        run: pip install uv
-
-      - name: Install uv tool
-        run: uv pip install --system -e .
+        run: |
+          pip install uv
+          uv pip install --system -e .
 
       - name: Render ${{ inputs.icon_pack_id }}
         run: python -m renderer "${{ inputs.icon_pack_id }}"
-
-      - name: Delete existing release and tag
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          new_tag="${{ inputs.base_tag }}-${{ inputs.icon_pack_id }}"
-
-          git config --global --add safe.directory $PWD
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch --prune origin "+refs/tags/*:refs/tags/*"
-
-          echo "🧹 Checking for existing release and tag: $new_tag"
-
-          # Delete GitHub release if exists
-          release_id=$(gh api repos/${{ github.repository }}/releases \
-            --jq ".[] | select(.tag_name==\"$new_tag\") | .id" | head -n 1)
-          if [ -n "$release_id" ]; then
-            echo "Deleting existing release with ID: $release_id"
-            gh api repos/${{ github.repository }}/releases/$release_id -X DELETE
-          fi
-          
-          # Delete local tag if exists
-          if git rev-parse "$new_tag" >/dev/null 2>&1; then
-            git tag -d "$new_tag"
-          fi
-
-          # Delete remote tag if exists
-          if git ls-remote --tags origin | grep -q "refs/tags/$new_tag$"; then
-            echo "Deleting remote tag..."
-            git push origin ":refs/tags/$new_tag"
-          fi
 
       - name: Create new tag
         run: |
           new_tag="${{ inputs.base_tag }}-${{ inputs.icon_pack_id }}"
           git tag -a "$new_tag" -m "Release $new_tag"
           git push origin "$new_tag"
-
-      - name: Wait for tag to propagate
-        run: |
-          new_tag="${{ inputs.base_tag }}-${{ inputs.icon_pack_id }}"
-          echo "Waiting for tag $new_tag to appear on GitHub..."
-          for i in {1..10}; do
-            if git ls-remote --tags origin | grep -q "refs/tags/$new_tag$"; then
-              echo "✅ Tag found on remote"
-              exit 0
-            fi
-            echo "Tag not found yet, retrying in 3s..."
-            sleep 3
-          done
-          echo "❌ Tag not found after 30s"
-          exit 1
 
       - name: Publish Release
         uses: softprops/action-gh-release@v2
